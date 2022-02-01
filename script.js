@@ -11,11 +11,10 @@
 // SELECTORS
 const recipeList = document.querySelector(".recipe-list");
 const randomButton = document.querySelector(".random-button");
-const refreshButton = document.querySelector(".refresh-button");
 
 // DIV PARENT 
 // Create recipe DIV
-const recipeDiv = document.createElement("div");
+let recipeDiv = document.createElement("div");
 recipeDiv.classList.add("recipe-div");
 
 // FUNCTIONS
@@ -95,15 +94,12 @@ const randomRecipe = () => {
         });  
 };
 
-
-const refreshPage = () => {
-	location.reload();
+const newRecipe = () => {
+	document.querySelector(".recipe-div").innerHTML = "";
+	randomRecipe();
 };
-
 
 
 // EVENT LISTENERS
 document.addEventListener("DOMContentLoaded", randomRecipe);
-randomButton.addEventListener("click", randomRecipe);
-refreshButton.addEventListener("click", refreshPage);
-
+randomButton.addEventListener("click", newRecipe);
